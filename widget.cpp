@@ -5,7 +5,7 @@
 Widget::Widget(QWidget *parent) : QWidget(parent), ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    loginActivity = new LoginActivity(this);
+    loginActivity = new LoginActivity(ui, this);
     connect(loginActivity, &LoginActivity::LoginSuccess, this, &Widget::handleLoginSuccess);
 }
 
@@ -16,6 +16,7 @@ Widget::~Widget()
 
 void Widget::handleLoginSuccess()
 {
-    qDebug() << ui->lineEditUsername->text();
-    qDebug() << ui->lineEditPassword->text();
+    qDebug() << "login successfully!";
+    qDebug() << ui->le_username->text();
+    qDebug() << ui->le_password->text();
 }
